@@ -86,7 +86,12 @@ class _LinkTextState extends State<LinkText> {
     if (links.isEmpty) {
       return Text(widget.text, style: textStyle, textAlign: widget.textAlign);
     }
-
+    final isUrl =
+        widget.text.startsWith('http') || widget.text.startsWith('https');
+    if (isUrl) {
+      _launchUrl(widget.text);
+      // return Container(); // or any other widget you want to return when launching the URL
+    }
     final textParts = widget.text.split(_regex);
     final textSpans = <TextSpan>[];
 
@@ -98,7 +103,8 @@ class _LinkTextState extends State<LinkText> {
         final link = links.elementAt(i).group(0) ?? '';
         var shortenedLink;
 
-        final recognizer = TapGestureRecognizer()..onTap = () => _launchUrl(link);
+        final recognizer = TapGestureRecognizer()
+          ..onTap = () => _launchUrl(link);
 
         if (widget.shouldTrimParams) {
           shortenedLink = _shortenedRegex.firstMatch(link)?.group(1);

@@ -29,8 +29,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final _text =
-      'Lorem ipsum https://flutter.dev\nhttps://pub.dev dolor https://google.com/search?q=flutter+&oq=flutter sit amet';
+  final _text = 'https://flutter.dev\nhttps://pub.dev';
 
   @override
   Widget build(BuildContext context) {
