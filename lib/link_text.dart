@@ -86,12 +86,12 @@ class _LinkTextState extends State<LinkText> {
     if (links.isEmpty) {
       return Text(widget.text, style: textStyle, textAlign: widget.textAlign);
     }
-    final isUrl =
-        widget.text.startsWith('http') || widget.text.startsWith('https');
-    if (isUrl) {
-      _launchUrl(widget.text);
-      // return Container(); // or any other widget you want to return when launching the URL
-    }
+    // final isUrl =
+    //     widget.text.startsWith('http') || widget.text.startsWith('https');
+    // if (isUrl) {
+    //   _launchUrl(widget.text);
+    //   // return Container(); // or any other widget you want to return when launching the URL
+    // }
     final textParts = widget.text.split(_regex);
     final textSpans = <TextSpan>[];
 
